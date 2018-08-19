@@ -6,7 +6,8 @@ import socket
 import sys
 from thread import *
 
-HOST = '172.16.1.194'   # Symbolic name meaning all available interfaces
+#HOST = '172.16.1.194'   # Symbolic name meaning all available interfaces
+HOST = "gps-tracker.herokuapp.com"
 PORT = 8888 # Arbitrary non-privileged port
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
