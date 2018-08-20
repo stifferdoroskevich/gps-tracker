@@ -1,1 +1,1 @@
-worker: python server-socket.py
+worker: python servidor.py
