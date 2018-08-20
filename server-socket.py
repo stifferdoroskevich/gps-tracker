@@ -4,6 +4,8 @@
 
 import socket
 import sys
+import http.server
+import socketserver
 from _thread import *
 
 #HOST = '172.16.1.194'   # Symbolic name meaning all available interfaces
@@ -14,6 +16,14 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("Content-Type: text/plain")
 print("")
 print('Socket created')
+
+#prueba http start
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("serving at port", PORT)
+    httpd.serve_forever()
+#prueba http end
 
 #Bind socket to local host and port
 try:
