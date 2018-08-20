@@ -10,7 +10,7 @@ from _thread import *
 
 #HOST = '172.16.1.194'   # Symbolic name meaning all available interfaces
 HOST = ''
-PORT = 47778 # Arbitrary non-privileged port
+PORT = 80 # Arbitrary non-privileged port
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("Content-Type: text/plain")
