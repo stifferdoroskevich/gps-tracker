@@ -4,10 +4,10 @@
 
 import socket
 import sys
-from thread import *
+from _thread import *
 
 #HOST = '172.16.1.194'   # Symbolic name meaning all available interfaces
-HOST = 'locahost'
+HOST = 'localhost'
 PORT = 47778 # Arbitrary non-privileged port
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -40,15 +40,16 @@ def clientthread(conn):
 
         #Receiving from client
         data = conn.recv(1024)
+        data = data.decode("utf-8")
 
         if not data:
             break
 
-        print(str(data))
+        print(data)
         log(data)
 
         if data.find("##") > -1:
-            conn.send("LOAD")
+            conn.send("LOAD\n".encode('utf-8'))
 
         if len(data) == 15:
             conn.send("ON")
